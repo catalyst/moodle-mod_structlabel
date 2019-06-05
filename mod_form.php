@@ -139,6 +139,11 @@ class mod_structlabel_mod_form extends moodleform_mod {
             return (object) ['url' => $url, 'text' => $text, 'icon' => $icon];
         }, array_keys($data->resourceurl)));
         unset($data->resourceurl, $data->resourcetext, $data->resourceicon);
+
+        // Always mark as showing description on frontpage, this is mainly to return
+        // the content to the mobile app hidden as a description. For the web, we do
+        // observe this setting as we always display content on the course page.
+        $data->showdescription = 1;
     }
 
     /**
