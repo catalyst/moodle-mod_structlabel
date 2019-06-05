@@ -86,6 +86,7 @@ class mod_structlabel_mod_form extends moodleform_mod {
         ];
         $this->repeat_elements($linkels, 3, $linkopts, 'linkrepeattimes', 'linkaddmore', 3,
             get_string('addnmoreresources', 'mod_structlabel'), true);
+        $this->init_iconpicker();
 
         $this->standard_coursemodule_elements();
         $this->add_action_buttons(true, false, null);
@@ -144,6 +145,23 @@ class mod_structlabel_mod_form extends moodleform_mod {
         // the content to the mobile app hidden as a description. For the web, we do
         // observe this setting as we always display content on the course page.
         $data->showdescription = 1;
+    }
+
+    /**
+     * Init icon picker.
+     *
+     * @return void
+     */
+    protected function init_iconpicker() {
+        global $PAGE;
+
+        $modules = core_component::get_plugin_list('mod');
+        if (!array_key_exists('bootstrapelements', $modules)) {
+            return;
+        }
+
+        $PAGE->requires->css(new moodle_url('/mod/bootstrapelements/css/fontawesome-iconpicker.min.css'));
+        $PAGE->requires->js_call_amd('mod_structlabel/iconpicker', 'init', ['[id^=id_resourceicon_]']);
     }
 
     /**
