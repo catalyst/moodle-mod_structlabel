@@ -22,10 +22,13 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-define(['jquery', 'popover', 'mod_bootstrapelements/fontawesome-iconpicker'], function($) {
+define(['jquery', 'popover'], function($) {
   return {
     init: function(selector) {
-      $(selector).iconpicker({placement: "right", selectedCustomClass: "label label-success"});
+      // The order of inclusion seems to matter, making the module lazy helped.
+      require(['mod_structlabel/fontawesome-iconpicker-lazy'], function() {
+        $(selector).iconpicker({placement: "right", selectedCustomClass: "label label-success"});
+      });
     }
   };
 });

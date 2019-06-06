@@ -154,13 +154,7 @@ class mod_structlabel_mod_form extends moodleform_mod {
      */
     protected function init_iconpicker() {
         global $PAGE;
-
-        $modules = core_component::get_plugin_list('mod');
-        if (!array_key_exists('bootstrapelements', $modules)) {
-            return;
-        }
-
-        $PAGE->requires->css(new moodle_url('/mod/bootstrapelements/css/fontawesome-iconpicker.min.css'));
+        $PAGE->requires->css(new moodle_url('/mod/structlabel/lib/fontawesome-iconpicker/fontawesome-iconpicker.min.css'));
         $PAGE->requires->js_call_amd('mod_structlabel/iconpicker', 'init', ['[id^=id_resourceicon_]']);
     }
 
