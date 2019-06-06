@@ -53,9 +53,12 @@ class renderer extends \plugin_renderer_base {
 
         $imageurl = null;
         if (!empty($cm->customdata->image)) {
-            // To prevent caching, we use the time modified in the path.
+            // To prevent browser caching, we use the time modified and admin sizes in the path.
+            $width = (int) get_config('mod_structlabel', 'imagewidth');
+            $height = (int) get_config('mod_structlabel', 'imageheight');
+            $timemodified = (int) $cm->customdata->image->timemodified;
             $imageurl = moodle_url::make_pluginfile_url($cm->context->id, 'mod_structlabel', 'image', 0,
-                $cm->customdata->image->timemodified . '/', $cm->customdata->image->filename);
+                 "/{$timemodified}/{$width}x{$height}/", $cm->customdata->image->filename);
         }
 
         $data = [
