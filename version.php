@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version      = 2019060700;
+$plugin->version      = 2019060701;
 $plugin->requires     = 2018120300;   // Moodle 3.6.0.
 $plugin->component    = 'mod_structlabel';
 $plugin->maturity     = MATURITY_STABLE;
