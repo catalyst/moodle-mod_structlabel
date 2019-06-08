@@ -45,6 +45,11 @@
 
 .mod_structlabel-resources {
     display: flex;
+    flex-wrap: wrap;
+}
+
+.mod_structlabel-resource {
+    margin: 0 1.5rem .5rem 0;
 }
 
 .mod_structlabel-resourcesbox h4 {
@@ -57,6 +62,11 @@
     text-decoration: none;
     background-color: #00bd70;
     color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 250px;
 }
 
 .mod_structlabel-resource a:hover,
@@ -71,10 +81,17 @@
     opacity: .8;
 }
 
-.mod_structlabel-resource + .mod_structlabel-resource {
-    margin-left: 1.5rem;
-}
-
 .mod_structlabel-resource .fa {
     margin-right: 5px;
+}
+
+@media (max-width: 576px) {
+    .mod_structlabel-content {
+        flex-wrap: wrap;
+    }
+    .mod_structlabel-image {
+        padding: 0;
+        margin-bottom: 1rem;
+        order: -1;
+    }
 }
