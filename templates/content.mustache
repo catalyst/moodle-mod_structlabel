@@ -46,8 +46,9 @@
             <div class="mod_structlabel-paragraph">
                 {{{content}}}
                 {{! We need a spacer to push the content out as some course formats
-                    do not display module regions at 100% width by default. }}
-                <img style="width:10000px;max-width:100%;height:1px;visibility:hidden;" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+                    do not display module regions at 100% width by default. Also we wrap
+                    that in a div otherwise the height taken may be greater than 1px. }}
+                <div style="height:1px"><img style="width:10000px;max-width:100%;height:1px;visibility:hidden;" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="></div>
             </div>
         </div>
         {{#hasresources}}
