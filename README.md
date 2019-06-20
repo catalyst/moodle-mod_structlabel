@@ -22,3 +22,8 @@ Configuration
 -------------
 
 Visit the settings page at _Site administration > Plugins > Activity modules > Structured label_ for all options.
+
+Building JavaScript
+-------------------
+
+The FontAwesome IconPicker has issues with Moodle core uglifier, see notes in `lib/fontawesome-iconpicker` prior to overriding the existing build files.
