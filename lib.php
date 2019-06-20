@@ -399,9 +399,6 @@ function mod_structlabel_crop_image($original, $imageinfo, $width, $height) {
         $offsety = floor(($originalheight - $revisedheight) / 2);
     }
 
-    error_log(json_encode(compact('width', 'height', 'originalwidth', 'originalheight', 'offsetx', 'offsety',
-        'widthratio', 'heightratio', 'revisedwidth', 'revisedheight')));
-
     if (function_exists('imagecreatetruecolor')) {
         $newimage = imagecreatetruecolor($width, $height);
         if ($imagefnc === 'imagepng') {
