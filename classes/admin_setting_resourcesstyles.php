@@ -70,14 +70,14 @@ class admin_setting_resourcesstyles extends \admin_setting_configtextarea {
             }
 
             if (empty($line->colour) || !preg_match('/^#[a-f0-9]{3}([a-f0-9]{3})?$/i', $line->colour)) {
-                $errors[] = get_string('errornotacolouratline', 'mod_structlabel', $i+1);
+                $errors[] = get_string('errornotacolouratline', 'mod_structlabel', $i + 1);
             }
 
             if (!empty($line->icon)) {
                 try {
                     validate_param($line->icon, PARAM_ALPHAEXT);
                 } catch (invalid_parameter_exception $e) {
-                    $errors[] = get_string('errorinvalidiconnameatline', 'mod_structlabel', $i+1);
+                    $errors[] = get_string('errorinvalidiconnameatline', 'mod_structlabel', $i + 1);
                 }
             }
         }

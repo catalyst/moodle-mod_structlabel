@@ -1,3 +1,4 @@
+<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -14,18 +15,26 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Icon picker.
+ * Upgrade.
  *
- * @module      mod_structlabel/iconpicker
- * @copyright   2019 Coventry University
- * @author      Frédéric Massart <fred@branchup.tech>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    mod_structlabel
+ * @copyright  2019 Coventry University
+ * @author     Frédéric Massart <fred@branchup.tech>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-define(['jquery', 'mod_structlabel/jquery-position', 'mod_structlabel/fontawesome-iconpicker'], function($) {
-    return {
-        init: function(selector) {
-            $(selector).iconpicker({placement: "right", selectedCustomClass: "label label-success"});
-        }
-    };
-});
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * Upgrade function.
+ *
+ * @param int $oldversion The version to upgrade from.
+ * @return true
+ */
+function xmldb_structlabel_upgrade($oldversion) {
+    global $CFG, $DB;
+
+    $dbman = $DB->get_manager();
+
+    return true;
+}

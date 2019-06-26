@@ -295,7 +295,7 @@ function mod_structlabel_parse_resource_styles($value) {
     return array_map(function($line) {
         $line = trim($line);
         $parts = explode('|', $line, 3);
-        if (empty($parts[0])){
+        if (empty($parts[0])) {
             return null;
         }
         return (object) [

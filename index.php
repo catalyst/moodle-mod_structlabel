@@ -23,7 +23,10 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+require_once(__DIR__ . '/../../config.php');
+
 $id = required_param('id', PARAM_INT);
+$PAGE->set_url(new moodle_url('/mod/structlabel/index.php', ['id' => $id]));
 
 // Nothing to see here.
-redirect(new moodle_url('/view.php', ['id' => $id]));
+redirect(new moodle_url('/course/view.php', ['id' => $id]));
