@@ -234,11 +234,20 @@ function mod_structlabel_pluginfile($course, $cm, context $context, $filearea, a
     if ($filearea === 'image') {
         $lifetime = DAYSECS * 120;
         $filename = array_pop($args);
+        $dimensions = array_pop($args);
         $timemodified = array_pop($args);
 
+        // Guess the dimentions from the URL, if we can.
+        if (strpos($dimensions, 'x') !== false) {
+            list($width, $height) = explode('x', $dimensions, 2);
+            $width = intval($width);
+            $height = intval($height);
+        } else {
+            $width = get_config('mod_structlabel', 'imagewidth');
+            $height = get_config('mod_structlabel', 'imageheight');
+        }
+
         // Attempt to find the cropped version.
-        $width = get_config('mod_structlabel', 'imagewidth');
-        $height = get_config('mod_structlabel', 'imageheight');
         $croppedfilepath = "/$timemodified/$width/$height/";
 
         // Check if we've got a cached file to return.

@@ -26,26 +26,20 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['addnmoreresources'] = 'Add {no} more resources';
+$string['content'] = 'Content';
+$string['errorinvalidiconnameatline'] = 'The icon name at line {$a} is not valid.';
+$string['errornotacolouratline'] = 'The colour at line {$a} is not valid.';
+$string['image'] = 'Image';
+$string['imageheight'] = 'Image height';
+$string['imageheight_desc'] = 'The height of the image. When both the width and height are defined, the image will be cropped to these exact dimensions.';
+$string['imagewidth'] = 'Image width';
+$string['imagewidth_desc'] = 'The width of the image to determine the aspect ratio. When both the width and height are defined, the image will be cropped to these exact dimensions.';
 $string['modulename'] = 'Structured label';
 $string['modulenameplural'] = 'Structured labels';
-$string['pluginname'] = 'Structured label';
 $string['pluginadministration'] = 'Structured label administration';
-$string['title'] = 'Title';
-$string['image'] = 'Image';
-$string['resourcetext'] = 'Name';
+$string['pluginname'] = 'Structured label';
 $string['resourceicon'] = 'Icon';
-$string['content'] = 'Content';
 $string['resourcenourl'] = 'Resource {no} URL';
-$string['structlabel:addinstance'] = 'Add a structured label to the course page';
-$string['structlabel:view'] = 'View structured label';
-$string['supportingresources'] = 'Supporting resources';
-$string['urlandtextrequired'] = 'Both the URL and name are required';
-$string['imagewidth'] = 'Image width';
-$string['imagewidth_desc'] = 'The image will be resized when its width exceeds this value. When both the width and height are defined, the image will be cropped to these exact dimensions.';
-$string['imageheight'] = 'Image height';
-$string['imageheight_desc'] = 'The image will be resized when its height exceeds this value. When both the width and height are defined, the image will be cropped to these exact dimensions.';
-$string['errornotacolouratline'] = 'The colour at line {$a} is not valid.';
-$string['errorinvalidiconnameatline'] = 'The icon name at line {$a} is not valid.';
 $string['resourcesstyles'] = 'Resources styles';
 $string['resourcesstyles_desc'] = 'Define the styles for resources matching certain URLs.
 
@@ -60,3 +54,9 @@ youtube.com|#FF0000|fa-play-circle
 lynda.com|#F1B500
 ```
 ';
+$string['resourcetext'] = 'Name';
+$string['structlabel:addinstance'] = 'Add a structured label to the course page';
+$string['structlabel:view'] = 'View structured label';
+$string['supportingresources'] = 'Supporting resources';
+$string['title'] = 'Title';
+$string['urlandtextrequired'] = 'Both the URL and name are required';

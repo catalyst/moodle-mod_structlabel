@@ -41,6 +41,9 @@ use mod_structlabel\admin_setting_resourcesstyles;
  */
 class renderer extends \plugin_renderer_base {
 
+    /** @var int Max size for XS display. */
+    protected $xsmaxwidth = 576;
+
     /**
      * Render the content.
      *
@@ -57,8 +60,20 @@ class renderer extends \plugin_renderer_base {
             $width = (int) get_config('mod_structlabel', 'imagewidth');
             $height = (int) get_config('mod_structlabel', 'imageheight');
             $timemodified = (int) $cm->customdata->image->timemodified;
-            $imageurl = moodle_url::make_pluginfile_url($cm->context->id, 'mod_structlabel', 'image', 0,
-                 "/{$timemodified}/{$width}x{$height}/", $cm->customdata->image->filename);
+
+            // At smallest screen size the image will display in full, so we use that as the best image we
+            // can serve. However we cannot do this if we do not know the desired with of the image, in which
+            // case we simply serve the image that we have.
+            if (!empty($width)) {
+                $xswidth = $this->xsmaxwidth;
+                $xsratio = $xswidth / $width;
+                $xsheight = round($height * $xsratio);
+                $imageurl = moodle_url::make_pluginfile_url($cm->context->id, 'mod_structlabel', 'image', 0,
+                     "/{$timemodified}/{$xswidth}x{$xsheight}/", $cm->customdata->image->filename);
+            } else {
+                $imageurl = moodle_url::make_pluginfile_url($cm->context->id, 'mod_structlabel', 'image', 0,
+                    "/{$timemodified}/{$width}x{$height}/", $cm->customdata->image->filename);
+            }
         }
 
         $data = [

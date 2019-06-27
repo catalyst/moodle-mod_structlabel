@@ -36,7 +36,14 @@
 
 .mod_structlabel-image {
     padding-left: 2rem;
-    flex: 0 0 auto;
+    flex: 0 0 25%;
+    text-align: right;
+}
+
+.mod_structlabel-image img {
+    height: auto;
+    width: 100%;
+    max-width: 100%;
 }
 
 .mod_structlabel-resources {
@@ -89,5 +96,7 @@
         padding: 0;
         margin-bottom: 1rem;
         order: -1;
+        flex-basis: 100%;
+        text-align: left;
     }
 }
