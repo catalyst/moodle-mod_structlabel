@@ -76,12 +76,23 @@ class renderer extends \plugin_renderer_base {
             }
         }
 
+        // Grid size.
+        $gridsize = get_config('mod_structlabel', 'gridsize');
+        if (empty($gridsize) || !strpos($gridsize, '-')) {
+            $gridsize = '8-4';
+        }
+        list($contentcolsize, $imagecolsize) = array_map('intval', explode('-', $gridsize, 2));
+
         $data = [
             'title' => $title,
             'content' => format_module_intro('structlabel', $cm->customdata, $cm->id),
             'hasresources' => !empty($resources),
             'resources' => $resources,
-            'imageurl' => $imageurl
+            'imageurl' => $imageurl,
+            'grid' => [
+                'image' => $imagecolsize,
+                'content' => $contentcolsize
+            ]
         ];
 
         return $this->render_from_template('mod_structlabel/content', $data);

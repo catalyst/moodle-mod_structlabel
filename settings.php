@@ -44,6 +44,19 @@ if ($ADMIN->fulltree) {
         PARAM_INT
     ));
 
+    $gridsizes = [
+        '7-5' => '7-5',
+        '8-4' => '8-4',
+        '9-3' => '9-3',
+    ];
+    $settings->add(new admin_setting_configselect(
+        'mod_structlabel/gridsize',
+        new lang_string('gridsize', 'mod_structlabel'),
+        new lang_string('gridsize_desc', 'mod_structlabel'),
+        '8-4',
+        $gridsizes
+    ));
+
     $settings->add(new admin_setting_resourcesstyles(
         'mod_structlabel/resourcesstyles',
         new lang_string('resourcesstyles', 'mod_structlabel'),

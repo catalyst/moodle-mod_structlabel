@@ -35,15 +35,19 @@
                 "text": "Moodle"
             }
         ],
-        "imageurl": "https://placekitten.com/200/300"
+        "imageurl": "https://placekitten.com/200/300",
+        "grid": {
+            "image": 4,
+            "content": 8
+        }
     }
 }}
 <div class="mod_structlabel-wrapper">
     <h3 class="mod_structlabel-title">{{title}}</h3>
     <div class="mod_structlabel-contentwrapper">
-        <div class="mod_structlabel-content">
-            <div class="mod_structlabel-image"><img src="{{imageurl}}" alt=""></div>
-            <div class="mod_structlabel-paragraph">
+        <div class="mod_structlabel-content row">
+            <div class="mod_structlabel-image col-sm-{{grid.image}} text-sm-right order-sm-1 mb-3 mb-sm-0"><img src="{{imageurl}}" alt=""></div>
+            <div class="mod_structlabel-paragraph col-sm-{{grid.content}}">
                 {{{content}}}
                 {{! We need a spacer to push the content out as some course formats
                     do not display module regions at 100% width by default. Also we wrap
