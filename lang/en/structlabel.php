@@ -62,3 +62,5 @@ $string['structlabel:view'] = 'View structured label';
 $string['supportingresources'] = 'Supporting resources';
 $string['title'] = 'Title';
 $string['urlandtextrequired'] = 'Both the URL and name are required';
+
+$string['privacy:metadata'] = 'The mod_structlabel plugin does not store user data.';
